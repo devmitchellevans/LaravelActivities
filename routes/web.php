@@ -14,12 +14,14 @@ use App\Http\Controllers\PostController;
 | contains the "web" middleware group. Now create something great!
 |
 */
-
-Route::get('/', function () {
-    return view('home');
-});
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
 Auth::routes();
+Route::get('/home', function () {
+    return redirect('posts');
+});
+
+
 
 Route::resources([
     '/posts' => PostController::class
@@ -29,4 +31,6 @@ Route::resource('posts', PostController::class);
 
 Route::get('/posts', [App\Http\Controllers\PostController::class, 'index'])->name('post');
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::resource('/comments', App\Http\Controllers\CommentController::class);
+
+

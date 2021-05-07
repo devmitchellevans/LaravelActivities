@@ -5,7 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Gate;
 
@@ -19,7 +20,11 @@ class PostController extends Controller
     public function index()
     {
         //
+        $user = User::find(Auth::id());
         $posts = Post::get();
+        $posts = $user->posts()->where('title','!=','')->get();
+        $count = $user->posts()->where('title','!=','')->count();
+
         return view('posts.index', ['posts' => $posts]);
     }
 
@@ -65,7 +70,7 @@ class PostController extends Controller
         $post = new Post();
         $post->title = $request->title;
         $post->description = $request->description;
-
+        $post->user_id = auth()->user()->id;
         $post->img = $filenametoStore;
         $post->save();
 
@@ -82,8 +87,10 @@ class PostController extends Controller
     public function show($id)
     {
         //
+
         $post = \App\Models\Post::find($id);
-        return view('posts.show', compact('post'));
+        $comments = $post->comments;
+        return view('posts.show', compact('post', 'comments'));
     }
 
     /**
@@ -98,6 +105,15 @@ class PostController extends Controller
         $post = \App\Models\Post::find($id);
 
         return view('posts.edit', compact('post'));
+
+    }
+
+    public function archive()
+    {
+        //
+        $posts = POST::onlyTrashed()->get();
+
+        return view('posts.archive', compact('posts'));
 
     }
 

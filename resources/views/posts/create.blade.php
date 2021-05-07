@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <a class="btn button btn-info" href="/posts">Back</a> <br><br>
+            <a class="btn button btn-info" href="/posts" style="margin-top:6%;">Back</a> <br><br>
             <div class="card">       
                 <div class="card-header">New Post</div>
                 <div class="card-body">

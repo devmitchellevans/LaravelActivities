@@ -35,7 +35,6 @@
                     @endauth
                 </div>
             @endif
-
             <div class="max-w-6xl mx-auto sm:px-6 lg:px-8">
                 <div class="flex justify-center pt-8 sm:justify-start sm:pt-0">
                     <svg viewBox="0 0 651 192" fill="none" xmlns="http://www.w3.org/2000/svg" class="h-16 w-auto text-gray-700 sm:h-20">
@@ -100,7 +99,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
                     <div class="text-center text-sm text-gray-500 sm:text-left">
                         <div class="flex items-center">
@@ -108,7 +106,7 @@
                                 <path d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"></path>
                             </svg>
 
-                            <a href="https://laravel.bigcartel.com" class="ml-1 underline">
+                            <a href="https://laravel.bigcartel.com/" class="ml-1 underline">
                                 Shop
                             </a>
 

@@ -1,26 +1,31 @@
 @extends('layouts.app')
 <style>
+
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
-  width: 100%;
+  width: 75%;
+  margin: 13%;
+  margin-top: 2%;
 }
 
 td, th {
   border: 1px solid #dddddd;
   text-align: left;
   padding: 8px;
+  
 }
 
 tr:nth-child(even) {
   background-color: #dddddd;
+  
 }
 </style>
 
 
 @section('content')
-
-<a class="btn button btn-info" href="/posts/create">Create New</a>
+<div class="content">
+<a class="btn button btn-info" href="/posts/create" style="margin-left: 13%; margin-top: 5%;">Create New</a>
 <table>
   <tr>
     <th>ID</th>
@@ -41,11 +46,12 @@ tr:nth-child(even) {
         <form action="posts/{{ $post->id }} " method="POST">
             @csrf
             @method("DELETE")
-            <button style="position: relative; margin-left: -320px; top: 8px" type="submit" name="submit" value="Delete" class="btn btn-danger"> Delete</button>
+            <button style="position: relative; margin-left: -170px; top: 8px" type="submit" name="submit" value="Delete" class="btn btn-danger"> Delete</button>
         </form>
     </td>
 </tr>
 @endforeach
 </table>
+</div>
 
 
